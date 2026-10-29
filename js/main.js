@@ -122,14 +122,64 @@ function initRipple() {
     });
 }
 
-// Завеса с логото при преминаване към друга страница от сайта
+// Отпечатък от лапа: голяма възглавничка и четири пръста
+var PAW_SVG = '<svg viewBox="0 0 64 64">' +
+    '<path d="M32 60c-10 0-18-5-18-12 0-9 9-17 18-17s18 8 18 17c0 7-8 12-18 12z"/>' +
+    '<ellipse cx="11" cy="28" rx="6" ry="8" transform="rotate(-25 11 28)"/>' +
+    '<ellipse cx="23" cy="15" rx="6.5" ry="9" transform="rotate(-8 23 15)"/>' +
+    '<ellipse cx="41" cy="15" rx="6.5" ry="9" transform="rotate(8 41 15)"/>' +
+    '<ellipse cx="53" cy="28" rx="6" ry="8" transform="rotate(25 53 28)"/>' +
+    '</svg>';
+
+// Следа от лапи през екрана по плавна дъга, сякаш куче минава отляво надясно
+function buildPawTrail(curtain) {
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var count = 9;
+    // дъгата е квадратична крива на Безие: начало, контролна точка, край
+    var p0 = { x: width * 0.06, y: height * 0.84 };
+    var p1 = { x: width * 0.42, y: height * 0.05 };
+    var p2 = { x: width * 0.94, y: height * 0.5 };
+
+    // на висок екран (телефон) следата върви нагоре с лека дъга надясно
+    if (height > width) {
+        p0 = { x: width * 0.18, y: height * 0.94 };
+        p1 = { x: width * 1.05, y: height * 0.5 };
+        p2 = { x: width * 0.3, y: height * 0.06 };
+    }
+    // колко встрани от пътя стъпва всяка лапа
+    var stride = Math.min(width, height) * 0.018;
+    var html = "";
+
+    for (var i = 0; i < count; i++) {
+        var t = (i + 0.5) / count;
+        var u = 1 - t;
+        var x = u * u * p0.x + 2 * u * t * p1.x + t * t * p2.x;
+        var y = u * u * p0.y + 2 * u * t * p1.y + t * t * p2.y;
+        // посоката на движение в тази точка (производна на кривата)
+        var dx = 2 * u * (p1.x - p0.x) + 2 * t * (p2.x - p1.x);
+        var dy = 2 * u * (p1.y - p0.y) + 2 * t * (p2.y - p1.y);
+        var angle = Math.atan2(dy, dx);
+        // лява и дясна лапа се редуват встрани от пътя
+        var side = i % 2 === 0 ? -1 : 1;
+        x -= Math.sin(angle) * side * stride;
+        y += Math.cos(angle) * side * stride;
+        var rotation = angle * 180 / Math.PI + 90;
+
+        html += '<span class="paw-step" style="left:' + Math.round(x) + 'px;top:' + Math.round(y) +
+            'px;transform:rotate(' + Math.round(rotation) + 'deg)">' +
+            PAW_SVG.replace("<svg", '<svg style="animation-delay:' + (i * 60) + 'ms"') + '</span>';
+    }
+
+    curtain.innerHTML = html;
+}
+
+// Следа от лапи при преминаване към друга страница от сайта
 function initPageTransitions() {
     var curtain = document.createElement("div");
-    var logo = document.querySelector(".brand img");
 
     curtain.className = "page-curtain";
     curtain.setAttribute("aria-hidden", "true");
-    curtain.innerHTML = '<img src="' + logo.getAttribute("src") + '" alt="">';
     document.body.appendChild(curtain);
 
     document.querySelectorAll("a[href]").forEach(function (link) {
@@ -143,16 +193,18 @@ function initPageTransitions() {
             }
 
             event.preventDefault();
+            buildPawTrail(curtain);
             curtain.classList.add("active");
             setTimeout(function () {
                 window.location.href = link.href;
-            }, 500);
+            }, 800);
         });
     });
 
-    // при връщане с бутона „Назад“ браузърът може да покаже старата страница – махаме завесата
+    // при връщане с бутона „Назад“ браузърът може да покаже старата страница – махаме следата
     window.addEventListener("pageshow", function () {
         curtain.classList.remove("active");
+        curtain.innerHTML = "";
     });
 }
 
