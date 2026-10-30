@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     initRipple();
+    initStoryRail();
 
     if (!reduceMotion) {
         initPageTransitions();
@@ -120,6 +121,52 @@ function initRipple() {
             }, 700);
         });
     });
+}
+
+// Странична лента с главите на началната страница
+function initStoryRail() {
+    var rail = document.getElementById("storyRail");
+
+    if (!rail || !("IntersectionObserver" in window)) {
+        return;
+    }
+
+    var links = rail.querySelectorAll("a");
+    var chapters = [];
+
+    links.forEach(function (link) {
+        chapters.push(document.querySelector(link.getAttribute("href")));
+    });
+
+    // активна е главата, която минава през средата на екрана
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var index = chapters.indexOf(entry.target);
+                links.forEach(function (link, i) {
+                    link.classList.toggle("active", i === index);
+                });
+            }
+        });
+    }, { rootMargin: "-45% 0px -54% 0px" });
+
+    chapters.forEach(function (chapter) {
+        observer.observe(chapter);
+    });
+
+    // лентата се показва след началния екран, а линията се запълва до текущата глава
+    function update() {
+        var first = chapters[0].getBoundingClientRect().top + window.scrollY;
+        var last = chapters[chapters.length - 1].getBoundingClientRect().top + window.scrollY;
+        var middle = window.scrollY + window.innerHeight / 2;
+        var progress = Math.min(Math.max((middle - first) / (last - first), 0), 1);
+
+        rail.classList.toggle("show", window.scrollY > window.innerHeight * 0.6);
+        rail.style.setProperty("--progress", progress);
+    }
+
+    window.addEventListener("scroll", update);
+    update();
 }
 
 // Отпечатък от лапа: голяма възглавничка и четири пръста

@@ -88,13 +88,25 @@
                     <a class="btn btn-ghost" href="breed.html">About the breed</a>
                 </div>
             </div>
-            <a class="scroll-hint" href="#about"><span class="visually-hidden">Go to content</span></a>
+            <a class="scroll-hint" href="#about"><span class="scroll-label">Our story</span></a>
         </section>
+
+        <nav class="story-rail" id="storyRail" aria-label="Chapters of our story">
+            <ol>
+                <li><a href="#about"><span class="rail-label">Our roots</span><span class="rail-num">01</span></a></li>
+                <li><a href="#owner"><span class="rail-label">The man</span><span class="rail-num">02</span></a></li>
+                <li><a href="#record"><span class="rail-label">The pride</span><span class="rail-num">03</span></a></li>
+                <li><a href="#ring"><span class="rail-label">In the ring</span><span class="rail-num">04</span></a></li>
+                <li><a href="#promise"><span class="rail-label">Our promise</span><span class="rail-num">05</span></a></li>
+                <li><a href="#guardian"><span class="rail-label">Your guardian</span><span class="rail-num">06</span></a></li>
+            </ol>
+        </nav>
 
         <section class="section" id="about">
             <div class="container about-grid">
                 <div class="reveal">
-                    <p class="eyebrow">About us</p>
+                    <span class="chapter-mark" aria-hidden="true">01</span>
+                    <p class="eyebrow">Our roots</p>
                     <h2>We raise guardians with character and heart</h2>
                     <p class="lead">Kennel Vikas-Dog is a family kennel in the village of Topolovo, Plovdiv region, devoted to a single breed – the Caucasian Shepherd.</p>
                     <p>Our dogs live outdoors in a family environment, grow up around people and animals and are regularly shown. This way every puppy gets good health, correct type and a balanced temperament.</p>
@@ -117,12 +129,13 @@
             </div>
         </section>
 
-        <section class="section founder" aria-labelledby="founderTitle">
+        <section class="section founder" id="owner" aria-labelledby="founderTitle">
             <div class="container founder-grid">
                 <figure class="founder-photo reveal">
                     <img src="../images/photos/founder-portrait.jpg" srcset="../images/photos/founder-portrait-small.jpg 480w, ../images/photos/founder-portrait.jpg 800w" sizes="(max-width: 768px) 90vw, 440px" alt="Dimitar Nikolov, owner of Kennel Vikas-Dog, at the Club Show 2026" width="800" height="1000" loading="lazy">
                 </figure>
                 <div class="founder-text reveal">
+                    <span class="chapter-mark" aria-hidden="true">02</span>
                     <p class="eyebrow">The man behind the kennel</p>
                     <h2 id="founderTitle">Dimitar Nikolov</h2>
                     <ul class="founder-roles">
@@ -138,7 +151,7 @@
             </div>
         </section>
 
-        <section class="section section-alt" aria-labelledby="recordTitle">
+        <section class="section section-alt" id="record" aria-labelledby="recordTitle">
             <div class="container record-grid">
                 <div class="withers reveal" aria-hidden="true">
                     <ul class="withers-numbers">
@@ -156,6 +169,7 @@
                     </div>
                 </div>
                 <div class="reveal">
+                    <span class="chapter-mark" aria-hidden="true">03</span>
                     <p class="eyebrow">The pride of our kennel</p>
                     <h2 id="recordTitle">The biggest male Caucasian Shepherd in Bulgaria comes from Vikas-Dog</h2>
                     <ul class="record-numbers">
@@ -168,10 +182,38 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="ring">
+            <div class="container">
+                <div class="show-teaser reveal">
+                    <img src="../images/photos/award-ceremony.jpg" alt="Award ceremony at the Caucasian Shepherd Club Show 2026" width="1400" height="927" loading="lazy">
+                    <div class="show-teaser-text">
+                        <span class="chapter-mark" aria-hidden="true">04</span>
+                        <p class="eyebrow">In the ring</p>
+                        <h2>Club Show 2026</h2>
+                        <ul class="show-meta">
+                            <li><strong>Date</strong> 18 October 2026</li>
+                            <li><strong>Venue</strong> Maritsa Park, Dimitrovgrad</li>
+                            <li><strong>Organiser</strong> Bulgarian National Club of the Caucasian Shepherd</li>
+                            <li><strong>Judge</strong> Marian Draganescu</li>
+                        </ul>
+                        <p>Watch the film and the best photos from the specialized club show of the breed.</p>
+                        <a class="btn btn-gold" href="dog-show.html">Open the gallery</a>
+                    </div>
+                </div>
+                <ul class="ring-strip reveal">
+                    <li><a href="dog-show.html#gallery"><img src="../images/gallery/show-01-thumb.jpg" alt="Smiling Caucasian Shepherd close-up" width="640" height="480" loading="lazy"></a></li>
+                    <li><a href="dog-show.html#gallery"><img src="../images/gallery/show-03-thumb.jpg" alt="Red Caucasian Shepherd in the ring" width="640" height="480" loading="lazy"></a></li>
+                    <li><a href="dog-show.html#gallery"><img src="../images/gallery/show-06-thumb.jpg" alt="Grey Caucasian Shepherd standing" width="640" height="480" loading="lazy"></a></li>
+                    <li><a href="dog-show.html#gallery"><img src="../images/gallery/show-08-thumb.jpg" alt="Red Caucasian Shepherd trotting" width="640" height="480" loading="lazy"></a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="promise">
             <div class="container">
                 <div class="section-head reveal">
-                    <p class="eyebrow">Why Vikas-Dog</p>
+                    <span class="chapter-mark" aria-hidden="true">05</span>
+                    <p class="eyebrow">Our promise</p>
                     <h2>More than a puppy – a partner for life</h2>
                 </div>
                 <div class="features reveal">
@@ -199,34 +241,10 @@
             </div>
         </section>
 
-        <section class="section section-alt">
-            <div class="container">
-                <div class="show-teaser reveal">
-                    <img src="../images/photos/award-ceremony.jpg" alt="Award ceremony at the Caucasian Shepherd Club Show 2026" width="1400" height="927" loading="lazy">
-                    <div class="show-teaser-text">
-                        <p class="eyebrow">Events</p>
-                        <h2>Club Show 2026</h2>
-                        <ul class="show-meta">
-                            <li><strong>Date</strong> 18 October 2026</li>
-                            <li><strong>Venue</strong> Maritsa Park, Dimitrovgrad</li>
-                            <li><strong>Organiser</strong> Bulgarian National Club of the Caucasian Shepherd</li>
-                            <li><strong>Judge</strong> Marian Draganescu</li>
-                        </ul>
-                        <p>Watch the film and the best photos from the specialized club show of the breed.</p>
-                        <a class="btn btn-gold" href="dog-show.html">Open the gallery</a>
-                    </div>
-                </div>
-                <ul class="ring-strip reveal">
-                    <li><a href="dog-show.html#gallery"><img src="../images/gallery/show-01-thumb.jpg" alt="Smiling Caucasian Shepherd close-up" width="640" height="480" loading="lazy"></a></li>
-                    <li><a href="dog-show.html#gallery"><img src="../images/gallery/show-03-thumb.jpg" alt="Red Caucasian Shepherd in the ring" width="640" height="480" loading="lazy"></a></li>
-                    <li><a href="dog-show.html#gallery"><img src="../images/gallery/show-06-thumb.jpg" alt="Grey Caucasian Shepherd standing" width="640" height="480" loading="lazy"></a></li>
-                    <li><a href="dog-show.html#gallery"><img src="../images/gallery/show-08-thumb.jpg" alt="Red Caucasian Shepherd trotting" width="640" height="480" loading="lazy"></a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="cta">
+        <section class="cta" id="guardian">
             <div class="container reveal">
+                <span class="chapter-mark" aria-hidden="true">06</span>
+                <p class="eyebrow">Your guardian</p>
                 <h2>Looking for your loyal guardian?</h2>
                 <p>We have no puppies available right now. Leave a request for our next litter and we will contact you first when it is born.</p>
                 <div class="hero-actions">

@@ -501,6 +501,20 @@ ol {
     opacity: 0.8;
 }
 
+/* надпис „Нашата история“ над иконата за скролиране */
+.scroll-label {
+    position: absolute;
+    bottom: 54px;
+    left: 50%;
+    font-family: var(--font-head);
+    font-size: 1.15em;
+    font-style: italic;
+    white-space: nowrap;
+    color: var(--gold-light);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    transform: translateX(-50%);
+}
+
 .scroll-hint::before {
     content: "";
     position: absolute;
@@ -697,7 +711,7 @@ ol {
 
 .show-meta li {
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 130px 1fr;
     gap: 12px;
     padding: 8px 0;
     border-bottom: 1px solid rgba(201, 163, 95, 0.18);
@@ -1729,6 +1743,130 @@ ol {
     color: var(--muted);
 }
 
+/* ---------- Началната страница като история: глави I–VI ---------- */
+
+/* голям номер на главата над малкото заглавие */
+.chapter-mark {
+    display: block;
+    margin-bottom: 0.08em;
+    font-family: var(--font-head);
+    font-size: 4.6em;
+    font-weight: 500;
+    font-variant-numeric: lining-nums;
+    line-height: 0.9;
+    color: rgba(201, 163, 95, 0.45);
+}
+
+/* странична лента с главите – появява се след началния екран */
+.story-rail {
+    position: fixed;
+    top: 50%;
+    right: 26px;
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(14px, -50%);
+    transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+.story-rail.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -50%);
+}
+
+.story-rail ol {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* тънка линия, която се запълва със златно до текущата глава */
+.story-rail ol::before,
+.story-rail ol::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(201, 163, 95, 0.25);
+}
+
+.story-rail ol::after {
+    background-color: var(--gold);
+    transform: scaleY(var(--progress, 0));
+    transform-origin: top center;
+}
+
+.story-rail a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 8px 18px 8px 0;
+    font-family: var(--font-head);
+    color: var(--muted);
+}
+
+.story-rail a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -3px;
+    z-index: 1;
+    width: 7px;
+    height: 7px;
+    margin-top: -4px;
+    border: 1px solid rgba(201, 163, 95, 0.6);
+    border-radius: 50%;
+    background-color: var(--green-950);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.rail-num {
+    min-width: 1.8em;
+    font-size: 1.05em;
+    font-weight: 600;
+    font-variant-numeric: lining-nums;
+    text-align: right;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.rail-label {
+    padding: 2px 12px;
+    border-radius: 14px;
+    background-color: rgba(10, 28, 21, 0.9);
+    font-style: italic;
+    white-space: nowrap;
+    color: var(--gold-light);
+    opacity: 0;
+    transform: translateX(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.story-rail a:hover .rail-label,
+.story-rail a:focus .rail-label {
+    opacity: 1;
+    transform: none;
+}
+
+.story-rail a.active {
+    color: var(--gold-light);
+}
+
+.story-rail a.active .rail-num {
+    transform: scale(1.25);
+}
+
+.story-rail a.active::after {
+    background-color: var(--gold);
+    transform: scale(1.4);
+}
+
 /* ---------- Рекордът: мерителна летва за височина при холката ---------- */
 
 .record-grid {
@@ -2163,6 +2301,10 @@ main,
 
 /* 1280x800 */
 @media screen and (max-width: 1280px) {
+    .story-rail {
+        display: none;
+    }
+
     .features {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2526,6 +2668,10 @@ main,
         font-size: 3.8em;
     }
 
+    .chapter-mark {
+        font-size: 3.6em;
+    }
+
     .ring-strip {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2581,6 +2727,11 @@ main,
 
 /* котвите не се скриват под фиксираната заглавна лента */
 #about,
+#owner,
+#record,
+#ring,
+#promise,
+#guardian,
 #gallery,
 #reservation {
     scroll-margin-top: 70px;
