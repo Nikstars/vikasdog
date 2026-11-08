@@ -151,15 +151,15 @@
                         </fieldset>
 
                         <fieldset>
-                            <legend>Посещение в развъдника</legend>
+                            <legend>Посещение в развъдника (по желание)</legend>
                             <div class="form-row">
                                 <div class="field" id="visitDateField">
-                                    <label for="visitDate">Дата <span class="req">*</span></label>
+                                    <label for="visitDate">Удобна дата</label>
                                     <input type="date" id="visitDate" name="visit_date">
                                     <span class="error-msg" id="visitDateError"></span>
                                 </div>
                                 <div class="field" id="visitTimeField">
-                                    <label for="visitTime">Час <span class="req">*</span></label>
+                                    <label for="visitTime">Удобен час</label>
                                     <input type="time" id="visitTime" name="visit_time" min="09:00" max="18:00">
                                     <span class="error-msg" id="visitTimeError"></span>
                                     <span class="hint">Между 09:00 и 18:00 ч.</span>
@@ -170,16 +170,15 @@
                         <fieldset>
                             <legend>Какво кученце търсите?</legend>
                             <div class="field" id="genderField">
-                                <span class="label" id="genderLabel">Пол <span class="req">*</span></span>
+                                <span class="label" id="genderLabel">Пол</span>
                                 <div class="choice-group" role="radiogroup" aria-labelledby="genderLabel">
                                     <label class="choice"><input type="radio" name="gender" value="Мъжко">Мъжко</label>
                                     <label class="choice"><input type="radio" name="gender" value="Женско">Женско</label>
                                     <label class="choice"><input type="radio" name="gender" value="Без значение">Без значение</label>
                                 </div>
-                                <span class="error-msg" id="genderError"></span>
                             </div>
                             <div class="field" id="colorField">
-                                <label for="color">Предпочитан цвят <span class="req">*</span></label>
+                                <label for="color">Предпочитан цвят</label>
                                 <select id="color" name="color">
                                     <option value="">– Изберете –</option>
                                     <option value="Сив">Сив</option>
@@ -188,17 +187,15 @@
                                     <option value="Петнист">Петнист</option>
                                     <option value="Без значение">Без значение</option>
                                 </select>
-                                <span class="error-msg" id="colorError"></span>
                             </div>
                             <div class="field" id="purposeField">
-                                <span class="label" id="purposeLabel">За какво Ви е кучето? <span class="req">*</span></span>
+                                <span class="label" id="purposeLabel">За какво Ви е кучето?</span>
                                 <div class="choice-group" role="group" aria-labelledby="purposeLabel">
                                     <label class="choice"><input type="checkbox" name="purpose" value="Охрана">Охрана на дома</label>
                                     <label class="choice"><input type="checkbox" name="purpose" value="Семеен любимец">Семеен любимец</label>
                                     <label class="choice"><input type="checkbox" name="purpose" value="Изложби">Изложби</label>
                                     <label class="choice"><input type="checkbox" name="purpose" value="Развъждане">Развъждане</label>
                                 </div>
-                                <span class="error-msg" id="purposeError"></span>
                             </div>
                             <div class="field" id="messageField">
                                 <label for="message">Съобщение</label>
@@ -208,31 +205,6 @@
                             </div>
                         </fieldset>
 
-                        <fieldset>
-                            <legend>Клиентски профил</legend>
-                            <p class="hint">Създайте парола за Вашия клиентски профил. От съображения за сигурност паролата не се изпраща по имейл.</p>
-                            <div class="form-row">
-                                <div class="field" id="passwordField">
-                                    <label for="password">Парола <span class="req">*</span></label>
-                                    <input type="password" id="password" autocomplete="new-password">
-                                    <div class="strength"><div class="strength-bar" id="strengthBar"></div></div>
-                                    <span class="hint" id="strengthLabel"></span>
-                                    <span class="error-msg" id="passwordError"></span>
-                                </div>
-                                <div class="field" id="confirmPasswordField">
-                                    <label for="confirmPassword">Повторете паролата <span class="req">*</span></label>
-                                    <input type="password" id="confirmPassword" autocomplete="new-password">
-                                    <span class="error-msg" id="confirmPasswordError"></span>
-                                </div>
-                            </div>
-                            <ul class="password-rules">
-                                <li id="rule-length">поне 8 символа</li>
-                                <li id="rule-upper">главна буква</li>
-                                <li id="rule-lower">малка буква</li>
-                                <li id="rule-digit">цифра</li>
-                                <li id="rule-symbol">специален символ</li>
-                            </ul>
-                        </fieldset>
 
                         <div class="field" id="termsField">
                             <label class="choice"><input type="checkbox" id="terms">Съгласен/на съм данните ми да се използват само за връзка с мен по тази заявка. <span class="req">*</span></label>

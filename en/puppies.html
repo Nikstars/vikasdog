@@ -151,15 +151,15 @@
                         </fieldset>
 
                         <fieldset>
-                            <legend>Visit to the kennel</legend>
+                            <legend>Visit to the kennel (optional)</legend>
                             <div class="form-row">
                                 <div class="field" id="visitDateField">
-                                    <label for="visitDate">Date <span class="req">*</span></label>
+                                    <label for="visitDate">Preferred date</label>
                                     <input type="date" id="visitDate" name="visit_date">
                                     <span class="error-msg" id="visitDateError"></span>
                                 </div>
                                 <div class="field" id="visitTimeField">
-                                    <label for="visitTime">Time <span class="req">*</span></label>
+                                    <label for="visitTime">Preferred time</label>
                                     <input type="time" id="visitTime" name="visit_time" min="09:00" max="18:00">
                                     <span class="error-msg" id="visitTimeError"></span>
                                     <span class="hint">Between 09:00 and 18:00 (Bulgarian time).</span>
@@ -170,16 +170,15 @@
                         <fieldset>
                             <legend>What puppy are you looking for?</legend>
                             <div class="field" id="genderField">
-                                <span class="label" id="genderLabel">Sex <span class="req">*</span></span>
+                                <span class="label" id="genderLabel">Sex</span>
                                 <div class="choice-group" role="radiogroup" aria-labelledby="genderLabel">
                                     <label class="choice"><input type="radio" name="gender" value="Male">Male</label>
                                     <label class="choice"><input type="radio" name="gender" value="Female">Female</label>
                                     <label class="choice"><input type="radio" name="gender" value="No preference">No preference</label>
                                 </div>
-                                <span class="error-msg" id="genderError"></span>
                             </div>
                             <div class="field" id="colorField">
-                                <label for="color">Preferred colour <span class="req">*</span></label>
+                                <label for="color">Preferred colour</label>
                                 <select id="color" name="color">
                                     <option value="">– Choose –</option>
                                     <option value="Grey">Grey</option>
@@ -188,17 +187,15 @@
                                     <option value="Piebald">Piebald</option>
                                     <option value="No preference">No preference</option>
                                 </select>
-                                <span class="error-msg" id="colorError"></span>
                             </div>
                             <div class="field" id="purposeField">
-                                <span class="label" id="purposeLabel">What will the dog be for? <span class="req">*</span></span>
+                                <span class="label" id="purposeLabel">What will the dog be for?</span>
                                 <div class="choice-group" role="group" aria-labelledby="purposeLabel">
                                     <label class="choice"><input type="checkbox" name="purpose" value="Guarding">Guarding the home</label>
                                     <label class="choice"><input type="checkbox" name="purpose" value="Family pet">Family pet</label>
                                     <label class="choice"><input type="checkbox" name="purpose" value="Shows">Dog shows</label>
                                     <label class="choice"><input type="checkbox" name="purpose" value="Breeding">Breeding</label>
                                 </div>
-                                <span class="error-msg" id="purposeError"></span>
                             </div>
                             <div class="field" id="messageField">
                                 <label for="message">Message</label>
@@ -208,31 +205,6 @@
                             </div>
                         </fieldset>
 
-                        <fieldset>
-                            <legend>Client profile</legend>
-                            <p class="hint">Create a password for your client profile. For security reasons the password is never sent by email.</p>
-                            <div class="form-row">
-                                <div class="field" id="passwordField">
-                                    <label for="password">Password <span class="req">*</span></label>
-                                    <input type="password" id="password" autocomplete="new-password">
-                                    <div class="strength"><div class="strength-bar" id="strengthBar"></div></div>
-                                    <span class="hint" id="strengthLabel"></span>
-                                    <span class="error-msg" id="passwordError"></span>
-                                </div>
-                                <div class="field" id="confirmPasswordField">
-                                    <label for="confirmPassword">Repeat password <span class="req">*</span></label>
-                                    <input type="password" id="confirmPassword" autocomplete="new-password">
-                                    <span class="error-msg" id="confirmPasswordError"></span>
-                                </div>
-                            </div>
-                            <ul class="password-rules">
-                                <li id="rule-length">at least 8 characters</li>
-                                <li id="rule-upper">an uppercase letter</li>
-                                <li id="rule-lower">a lowercase letter</li>
-                                <li id="rule-digit">a digit</li>
-                                <li id="rule-symbol">a special character</li>
-                            </ul>
-                        </fieldset>
 
                         <div class="field" id="termsField">
                             <label class="choice"><input type="checkbox" id="terms">I agree that my data will be used only to contact me about this request. <span class="req">*</span></label>
