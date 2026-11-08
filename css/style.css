@@ -972,6 +972,16 @@ ol {
     opacity: 1;
 }
 
+/* зимната галерия на началната страница: една голяма снимка и пет малки */
+.gallery-winter {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+}
+
+.gallery-winter li:nth-child(6) {
+    grid-column: span 1;
+}
+
 .show-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2268,6 +2278,10 @@ main,
     .gallery li:nth-child(6),
     .gallery li:nth-child(11) {
         grid-column: span 1;
+    }
+
+    .gallery-winter li:nth-child(6) {
+        grid-column: span 2;
     }
 
     .footer-grid {
