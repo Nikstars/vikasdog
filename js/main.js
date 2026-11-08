@@ -8,11 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var isEnglish = document.documentElement.lang === "en";
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Тънка златиста лента, която показва докъде е прочетена страницата
-    var progress = document.createElement("div");
-    progress.className = "scroll-progress";
-    document.body.appendChild(progress);
-
     // Мобилно меню
     navToggle.addEventListener("click", function () {
         var isOpen = mainNav.classList.toggle("open");
@@ -26,9 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
         var scrolled = window.scrollY > 60;
         header.classList.toggle("scrolled", scrolled);
         backToTop.classList.toggle("show", window.scrollY > 600);
-
-        var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        progress.style.transform = "scaleX(" + (maxScroll > 0 ? window.scrollY / maxScroll : 0) + ")";
     }
 
     window.addEventListener("scroll", onScroll);
@@ -69,9 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
         initLightbox(galleryLinks, isEnglish);
     }
 
-    initRipple();
-    initStoryRail();
-
     if (!reduceMotion) {
         initPageTransitions();
     }
@@ -104,69 +93,6 @@ function countUp(element, instant) {
 
     element.textContent = "0";
     requestAnimationFrame(step);
-}
-
-// Вълна от мястото на клика върху всеки бутон
-function initRipple() {
-    document.querySelectorAll(".btn").forEach(function (button) {
-        button.addEventListener("click", function (event) {
-            var rect = button.getBoundingClientRect();
-            var wave = document.createElement("span");
-            wave.className = "ripple";
-            wave.style.left = (event.clientX - rect.left) + "px";
-            wave.style.top = (event.clientY - rect.top) + "px";
-            button.appendChild(wave);
-            setTimeout(function () {
-                wave.remove();
-            }, 700);
-        });
-    });
-}
-
-// Странична лента с главите на началната страница
-function initStoryRail() {
-    var rail = document.getElementById("storyRail");
-
-    if (!rail || !("IntersectionObserver" in window)) {
-        return;
-    }
-
-    var links = rail.querySelectorAll("a");
-    var chapters = [];
-
-    links.forEach(function (link) {
-        chapters.push(document.querySelector(link.getAttribute("href")));
-    });
-
-    // активна е главата, която минава през средата на екрана
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                var index = chapters.indexOf(entry.target);
-                links.forEach(function (link, i) {
-                    link.classList.toggle("active", i === index);
-                });
-            }
-        });
-    }, { rootMargin: "-45% 0px -54% 0px" });
-
-    chapters.forEach(function (chapter) {
-        observer.observe(chapter);
-    });
-
-    // лентата се показва след началния екран, а линията се запълва до текущата глава
-    function update() {
-        var first = chapters[0].getBoundingClientRect().top + window.scrollY;
-        var last = chapters[chapters.length - 1].getBoundingClientRect().top + window.scrollY;
-        var middle = window.scrollY + window.innerHeight / 2;
-        var progress = Math.min(Math.max((middle - first) / (last - first), 0), 1);
-
-        rail.classList.toggle("show", window.scrollY > window.innerHeight * 0.6);
-        rail.style.setProperty("--progress", progress);
-    }
-
-    window.addEventListener("scroll", update);
-    update();
 }
 
 // Отпечатък от лапа: голяма възглавничка и четири пръста
