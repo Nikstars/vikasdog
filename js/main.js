@@ -141,7 +141,7 @@ function buildPawTrail(curtain) {
 
         html += '<span class="paw-step" style="left:' + Math.round(x) + 'px;top:' + Math.round(y) +
             'px;transform:rotate(' + Math.round(rotation) + 'deg)">' +
-            PAW_SVG.replace("<svg", '<svg style="animation-delay:' + (i * 60) + 'ms"') + '</span>';
+            PAW_SVG.replace("<svg", '<svg style="animation-delay:' + (i * 30) + 'ms"') + '</span>';
     }
 
     curtain.innerHTML = html;
@@ -166,17 +166,37 @@ function initPageTransitions() {
             }
 
             event.preventDefault();
-            buildPawTrail(curtain);
+
+            // цялата следа се показва само при първата смяна на страница,
+            // после страницата само притъмнява за миг, за да не чака човек
+            var firstTime = true;
+            var delay = 200;
+
+            try {
+                firstTime = !sessionStorage.getItem("pawsShown");
+                sessionStorage.setItem("pawsShown", "1");
+            } catch (error) {
+                // без sessionStorage (напр. блокирани бисквитки) следата се показва всеки път
+            }
+
+            if (firstTime) {
+                buildPawTrail(curtain);
+                delay = 450;
+            } else {
+                curtain.innerHTML = "";
+                curtain.classList.add("quick");
+            }
+
             curtain.classList.add("active");
             setTimeout(function () {
                 window.location.href = link.href;
-            }, 800);
+            }, delay);
         });
     });
 
     // при връщане с бутона „Назад“ браузърът може да покаже старата страница – махаме следата
     window.addEventListener("pageshow", function () {
-        curtain.classList.remove("active");
+        curtain.classList.remove("active", "quick");
         curtain.innerHTML = "";
     });
 }

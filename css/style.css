@@ -1939,6 +1939,10 @@ main,
     opacity: 1;
 }
 
+.page-curtain.quick {
+    transition-duration: 0.2s;
+}
+
 .paw-step {
     position: absolute;
     width: 92px;
@@ -1956,7 +1960,7 @@ main,
 
 /* всяка лапа се „отпечатва“ малко след предишната */
 .page-curtain.active .paw-step svg {
-    animation: paw-print 0.45s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+    animation: paw-print 0.3s cubic-bezier(0.2, 0.8, 0.3, 1) both;
 }
 
 @keyframes paw-print {
