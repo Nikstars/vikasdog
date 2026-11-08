@@ -583,7 +583,7 @@ ol {
 }
 
 .hero-puppies {
-    background-image: url("../images/photos/puppy-ring.jpg");
+    background-image: url("../images/photos/puppy-grass.jpg");
 }
 
 .hero-contact {
@@ -972,14 +972,22 @@ ol {
     opacity: 1;
 }
 
-/* зимната галерия на началната страница: една голяма снимка и пет малки */
+/* зимната галерия на началната страница: голяма, висока и широка снимка между малките */
 .gallery-winter {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 250px;
 }
 
+.gallery-winter li:nth-child(2) {
+    grid-row: span 2;
+}
+
 .gallery-winter li:nth-child(6) {
     grid-column: span 1;
+}
+
+.gallery-winter li:nth-child(7) {
+    grid-column: span 2;
 }
 
 .show-info {
@@ -1875,6 +1883,11 @@ ol {
 }
 
 /* ---------- Лента със снимки от ринга ---------- */
+
+.ring-strip-title {
+    margin: 50px 0 0;
+    font-size: 1.6em;
+}
 
 .ring-strip {
     display: grid;

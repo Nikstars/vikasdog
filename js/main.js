@@ -54,12 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Галерия с lightbox (само на страницата с изложбата)
-    var galleryLinks = document.querySelectorAll(".gallery a");
-
-    if (galleryLinks.length > 0) {
-        initLightbox(galleryLinks, isEnglish);
-    }
+    // Галерии с lightbox – всяка група снимки се разглежда отделно
+    document.querySelectorAll(".gallery, .ring-strip").forEach(function (list) {
+        initLightbox(list.querySelectorAll("a"), isEnglish);
+    });
 
     if (!reduceMotion) {
         initPageTransitions();
