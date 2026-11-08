@@ -1939,10 +1939,6 @@ main,
     opacity: 1;
 }
 
-.page-curtain.quick {
-    transition-duration: 0.2s;
-}
-
 .paw-step {
     position: absolute;
     width: 92px;

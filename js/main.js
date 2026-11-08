@@ -166,37 +166,17 @@ function initPageTransitions() {
             }
 
             event.preventDefault();
-
-            // цялата следа се показва само при първата смяна на страница,
-            // после страницата само притъмнява за миг, за да не чака човек
-            var firstTime = true;
-            var delay = 200;
-
-            try {
-                firstTime = !sessionStorage.getItem("pawsShown");
-                sessionStorage.setItem("pawsShown", "1");
-            } catch (error) {
-                // без sessionStorage (напр. блокирани бисквитки) следата се показва всеки път
-            }
-
-            if (firstTime) {
-                buildPawTrail(curtain);
-                delay = 450;
-            } else {
-                curtain.innerHTML = "";
-                curtain.classList.add("quick");
-            }
-
+            buildPawTrail(curtain);
             curtain.classList.add("active");
             setTimeout(function () {
                 window.location.href = link.href;
-            }, delay);
+            }, 450);
         });
     });
 
     // при връщане с бутона „Назад“ браузърът може да покаже старата страница – махаме следата
     window.addEventListener("pageshow", function () {
-        curtain.classList.remove("active", "quick");
+        curtain.classList.remove("active");
         curtain.innerHTML = "";
     });
 }
