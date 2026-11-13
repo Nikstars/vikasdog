@@ -728,6 +728,7 @@ ol {
 }
 
 .breed-article h2 {
+    clear: both;
     margin-top: 1.2em;
     font-size: 2.2em;
 }
@@ -741,6 +742,11 @@ ol {
     float: right;
     width: 45%;
     margin: 6px 0 20px 30px;
+}
+
+.float-photo.left {
+    float: left;
+    margin: 6px 30px 20px 0;
 }
 
 .float-photo img {
@@ -2221,7 +2227,8 @@ main,
         padding: 34px 24px;
     }
 
-    .float-photo {
+    .float-photo,
+    .float-photo.left {
         float: none;
         width: 100%;
         margin: 0 0 24px;
