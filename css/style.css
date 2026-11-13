@@ -847,6 +847,10 @@ ol {
     color: var(--muted);
 }
 
+.breed-faq {
+    margin-top: 2.5em;
+}
+
 .sidebar {
     position: sticky;
     top: 110px;
