@@ -1544,8 +1544,8 @@ ol {
 
 .back-to-top {
     position: fixed;
-    right: 24px;
-    bottom: 24px;
+    right: 28px;
+    bottom: 92px;
     z-index: 90;
     width: 48px;
     height: 48px;
@@ -1569,6 +1569,45 @@ ol {
 .back-to-top:hover {
     color: var(--green-950);
     background-color: var(--gold-light);
+}
+
+/* ---------- Бутон за съобщение във Viber ---------- */
+
+.viber-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 91;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--gold);
+    color: var(--green-950);
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.viber-btn svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linejoin: round;
+}
+
+.viber-btn .viber-phone {
+    fill: currentColor;
+    stroke: none;
+}
+
+.viber-btn:hover {
+    color: var(--green-950);
+    background-color: var(--gold-light);
+    transform: translateY(-2px);
 }
 
 /* ---------- Плавно появяване при скролиране ---------- */
@@ -2329,6 +2368,11 @@ main,
     }
 
     .back-to-top {
+        right: 18px;
+        bottom: 80px;
+    }
+
+    .viber-btn {
         right: 14px;
         bottom: 14px;
     }
