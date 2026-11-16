@@ -60,4 +60,28 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/contact.html"/>
         <lastmod>2026-10-29</lastmod>
     </url>
+    <url>
+        <loc>https://vikasdog.com/price.html</loc>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/price.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/price.html"/>
+        <lastmod>2026-11-16</lastmod>
+    </url>
+    <url>
+        <loc>https://vikasdog.com/en/price.html</loc>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/price.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/price.html"/>
+        <lastmod>2026-11-16</lastmod>
+    </url>
+    <url>
+        <loc>https://vikasdog.com/caucasian-vs-central-asian.html</loc>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/caucasian-vs-central-asian.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/caucasian-vs-central-asian.html"/>
+        <lastmod>2026-11-16</lastmod>
+    </url>
+    <url>
+        <loc>https://vikasdog.com/en/caucasian-vs-central-asian.html</loc>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/caucasian-vs-central-asian.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/caucasian-vs-central-asian.html"/>
+        <lastmod>2026-11-16</lastmod>
+    </url>
 </urlset>
