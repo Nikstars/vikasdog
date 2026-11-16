@@ -582,6 +582,53 @@ ol {
     background-image: url("../images/photos/award-ceremony.jpg");
 }
 
+/* ---------- Нашите кучета по света ---------- */
+
+.country-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.country-list li {
+    padding: 12px 26px;
+    border: 1px solid rgba(201, 163, 95, 0.45);
+    border-radius: 999px;
+    font-family: var(--font-head);
+    font-size: 1.5em;
+    line-height: 1.2;
+    color: var(--cream);
+}
+
+.country-list li.home {
+    border-color: var(--gold);
+    background-color: rgba(201, 163, 95, 0.12);
+}
+
+.country-list small {
+    margin-left: 6px;
+    font-family: var(--font-body);
+    font-size: 0.5em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.country-note {
+    margin-top: 28px;
+    text-align: center;
+}
+
+.hero-compare {
+    background-image: url("../images/photos/kennel-dog.jpg");
+    background-position: center 35%;
+}
+
 .hero-puppies {
     background-image: url("../images/photos/puppy-grass.jpg");
 }
