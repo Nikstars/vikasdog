@@ -733,14 +733,7 @@ ol {
 }
 
 .hero-puppies {
-    padding-bottom: 300px;
-    background-image: url("../images/photos/puppies-forest.jpg");
-    background-position: center bottom;
-}
-
-/* кученцата са долу – там затъмняването е по-слабо, за да се виждат */
-.hero-puppies::before {
-    background: linear-gradient(180deg, rgba(10, 28, 21, 0.88) 0%, rgba(10, 28, 21, 0.55) 38%, rgba(10, 28, 21, 0.1) 68%, rgba(10, 28, 21, 0.25) 90%, var(--green-950) 100%);
+    background-image: url("../images/photos/puppy-grass.jpg");
 }
 
 .hero-contact {
@@ -2534,10 +2527,6 @@ main,
 
     .page-hero {
         padding: 150px 0 70px;
-    }
-
-    .hero-puppies {
-        padding-bottom: 210px;
     }
 
     .page-hero h1 {
