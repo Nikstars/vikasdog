@@ -706,6 +706,22 @@ ol {
     text-align: center;
 }
 
+.hero-our-dogs {
+    background-image: url("../images/photos/our-dogs-hero.jpg");
+    background-position: center 45%;
+}
+
+/* Блок „Следете ни“ без снимка до него */
+.social-follow {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.social-follow .social {
+    justify-content: center;
+}
+
 .hero-show-2025 {
     background-image: url("../images/photos/show25-hero.jpg");
     background-position: center 40%;
@@ -717,7 +733,14 @@ ol {
 }
 
 .hero-puppies {
-    background-image: url("../images/photos/puppy-grass.jpg");
+    padding-bottom: 300px;
+    background-image: url("../images/photos/puppies-forest.jpg");
+    background-position: center bottom;
+}
+
+/* кученцата са долу – там затъмняването е по-слабо, за да се виждат */
+.hero-puppies::before {
+    background: linear-gradient(180deg, rgba(10, 28, 21, 0.88) 0%, rgba(10, 28, 21, 0.55) 38%, rgba(10, 28, 21, 0.1) 68%, rgba(10, 28, 21, 0.25) 90%, var(--green-950) 100%);
 }
 
 .hero-contact {
@@ -2513,6 +2536,10 @@ main,
         padding: 150px 0 70px;
     }
 
+    .hero-puppies {
+        padding-bottom: 210px;
+    }
+
     .page-hero h1 {
         font-size: 2.9em;
     }
@@ -2741,6 +2768,10 @@ main,
 
     .main-nav.open li:nth-child(5) {
         animation-delay: 0.2s;
+    }
+
+    .main-nav.open li:nth-child(6) {
+        animation-delay: 0.25s;
     }
 }
 

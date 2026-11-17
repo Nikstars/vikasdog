@@ -96,4 +96,16 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/dog-show-2025.html"/>
         <lastmod>2026-11-17</lastmod>
     </url>
+    <url>
+        <loc>https://vikasdog.com/our-dogs.html</loc>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/our-dogs.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/our-dogs.html"/>
+        <lastmod>2026-11-18</lastmod>
+    </url>
+    <url>
+        <loc>https://vikasdog.com/en/our-dogs.html</loc>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/our-dogs.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/our-dogs.html"/>
+        <lastmod>2026-11-18</lastmod>
+    </url>
 </urlset>
