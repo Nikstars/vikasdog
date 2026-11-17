@@ -16,6 +16,39 @@ document.addEventListener("DOMContentLoaded", function () {
         navToggle.setAttribute("aria-expanded", isOpen);
     });
 
+    // Падащо меню „Изложби“ – отваря се с клик (на телефон) или с мишката (на компютър)
+    var subItems = document.querySelectorAll(".has-sub");
+
+    function closeSubMenus(except) {
+        subItems.forEach(function (item) {
+            if (item !== except) {
+                item.classList.remove("open");
+                item.querySelector(".sub-toggle").setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+    subItems.forEach(function (item) {
+        var toggle = item.querySelector(".sub-toggle");
+        toggle.addEventListener("click", function () {
+            var isOpen = item.classList.toggle("open");
+            toggle.setAttribute("aria-expanded", isOpen);
+            closeSubMenus(item);
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".has-sub")) {
+            closeSubMenus(null);
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeSubMenus(null);
+        }
+    });
+
     // Фон на заглавната лента и бутон „нагоре“ при скролиране
     function onScroll() {
         var scrolled = window.scrollY > 60;

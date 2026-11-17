@@ -311,6 +311,88 @@ ol {
     color: var(--gold-light);
 }
 
+/* Падащо меню „Изложби“ */
+.has-sub {
+    position: relative;
+}
+
+.sub-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 0;
+    background: none;
+    font-family: inherit;
+    font-size: 0.93em;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.sub-toggle::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.sub-toggle:hover,
+.sub-toggle.active {
+    color: var(--gold-light);
+}
+
+.main-nav .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    display: block;
+    min-width: 190px;
+    padding: 8px;
+    border: 1px solid rgba(201, 163, 95, 0.25);
+    border-radius: 10px;
+    background-color: rgba(10, 28, 21, 0.98);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.has-sub:hover .sub-menu,
+.has-sub:focus-within .sub-menu,
+.has-sub.open .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.has-sub:hover .sub-toggle::after,
+.has-sub.open .sub-toggle::after {
+    transform: rotate(225deg);
+    margin-top: 3px;
+}
+
+.main-nav .sub-menu a {
+    padding: 10px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.main-nav .sub-menu a::after {
+    display: none;
+}
+
+.main-nav .sub-menu a:hover {
+    background-color: rgba(201, 163, 95, 0.1);
+    color: var(--gold-light);
+}
+
 .lang-switch {
     padding: 6px 14px;
     border: 1px solid rgba(201, 163, 95, 0.6);
@@ -622,6 +704,11 @@ ol {
 .country-note {
     margin-top: 28px;
     text-align: center;
+}
+
+.hero-show-2025 {
+    background-image: url("../images/photos/show25-hero.jpg");
+    background-position: center 40%;
 }
 
 .hero-compare {
@@ -2333,6 +2420,37 @@ main,
 
     .main-nav ul a::after {
         display: none;
+    }
+
+    .sub-toggle {
+        justify-content: space-between;
+        width: 100%;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(201, 163, 95, 0.15);
+        font-size: 1.05em;
+        text-align: left;
+    }
+
+    .main-nav .sub-menu {
+        position: static;
+        display: none;
+        min-width: 0;
+        padding: 0 0 0 18px;
+        border: 0;
+        background: none;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .main-nav .has-sub.open .sub-menu {
+        display: block;
+    }
+
+    .main-nav .sub-menu a {
+        padding: 12px 0;
+        border-radius: 0;
     }
 
     .site-header.menu-open {
