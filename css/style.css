@@ -625,8 +625,8 @@ ol {
 }
 
 .hero-compare {
-    background-image: url("../images/photos/kennel-dog.jpg");
-    background-position: center 35%;
+    background-image: url("../images/photos/dogs-running.jpg");
+    background-position: center 60%;
 }
 
 .hero-puppies {
@@ -634,8 +634,8 @@ ol {
 }
 
 .hero-contact {
-    background-image: url("../images/hero/cover-medium.jpg");
-    background-position: center bottom;
+    background-image: url("../images/photos/kennel-owner-dog.jpg");
+    background-position: center 40%;
 }
 
 /* ---------- За развъдника ---------- */
