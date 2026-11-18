@@ -1903,6 +1903,64 @@ ol {
     color: var(--cream);
 }
 
+/* Документи за регистрацията (FCI и БАБХ) */
+.doc-proof {
+    margin: -0.8em 0 2em;
+}
+
+.doc-proof-label {
+    margin: 0 0 10px;
+    font-family: var(--font-head);
+    font-size: 1.15em;
+    font-style: italic;
+    color: var(--gold);
+}
+
+.doc-proof ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 180px));
+    gap: 14px;
+    margin: 0 0 12px;
+    padding: 0;
+    list-style: none;
+}
+
+.doc-proof li a {
+    display: block;
+    color: var(--text);
+}
+
+.doc-proof-note a {
+    color: var(--gold-light);
+    text-decoration: underline;
+}
+
+.doc-proof img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(201, 163, 95, 0.35);
+    border-radius: 8px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.doc-proof a:hover img {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.doc-proof span {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.8em;
+}
+
+.doc-proof-note {
+    margin: 0;
+    font-size: 0.85em;
+    color: var(--muted);
+}
+
 /* ---------- Собственикът на развъдника ---------- */
 
 .founder {
