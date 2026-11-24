@@ -158,8 +158,9 @@
                             <div class="form-row">
                                 <div class="field" id="visitDateField">
                                     <label for="visitDate">Удобна дата</label>
-                                    <input type="date" id="visitDate" name="visit_date">
+                                    <input type="date" id="visitDate" name="visit_date" min="2027-02-01">
                                     <span class="error-msg" id="visitDateError"></span>
+                                    <span class="hint">Кученцата очакваме през февруари 2027 г., затова посещенията са от 1 февруари.</span>
                                 </div>
                                 <div class="field" id="visitTimeField">
                                     <label for="visitTime">Удобен час</label>
@@ -181,7 +182,7 @@
                                 </div>
                             </div>
                             <div class="field" id="colorField">
-                                <label for="color">Предпочитан цвят</label>
+                                <label for="color">Цвят (ако има избор)</label>
                                 <select id="color" name="color">
                                     <option value="">– Изберете –</option>
                                     <option value="Сив">Сив</option>
@@ -190,6 +191,7 @@
                                     <option value="Петнист">Петнист</option>
                                     <option value="Без значение">Без значение</option>
                                 </select>
+                                <span class="hint">Цветът зависи от родителите и котилото, затова не можем да го обещаем. Ще Ви кажем какви кученца има, когато се родят.</span>
                             </div>
                             <div class="field" id="purposeField">
                                 <span class="label" id="purposeLabel">За какво Ви е кучето?</span>
@@ -214,7 +216,7 @@
                             <span class="error-msg" id="termsError"></span>
                         </div>
 
-                        <p class="form-notice" role="note"><strong>В момента нямаме кученца.</strong> Ако искате да Ви запишем за бъдещо кученце, изпратете заявка.</p>
+                        <p class="form-notice" role="note"><strong>В момента нямаме кученца.</strong> Следващото котило очакваме през февруари 2027 г. Изпратете заявка и ще Ви запишем за кученце от него. Записването не е гаранция за кученце, защото заявките са много. Ще се свържем с Вас допълнително, когато кученцата се родят.</p>
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-gold" id="submitButton">Изпрати заявката</button>

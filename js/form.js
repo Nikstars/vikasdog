@@ -7,6 +7,7 @@ var messages = {
         email: "Въведете валиден имейл адрес, например ivan@mail.bg.",
         phone: "Въведете валиден телефон, например 0893 416 137.",
         datePast: "Изберете дата от днес нататък.",
+        dateEarly: "Кученцата очакваме през февруари 2027 г. Изберете дата от 1 февруари нататък.",
         time: "Посещенията са между 09:00 и 18:00 ч.",
         messageLong: "Съобщението е твърде дълго (максимум 600 символа).",
         terms: "Необходимо е съгласие за обработка на данните.",
@@ -23,6 +24,7 @@ var messages = {
         email: "Enter a valid email address, e.g. john@mail.com.",
         phone: "Enter a valid phone number, e.g. +359 893 416 137.",
         datePast: "Choose a date from today onwards.",
+        dateEarly: "We expect the puppies in February 2027. Please choose a date from 1 February onwards.",
         time: "Visits are between 09:00 and 18:00.",
         messageLong: "The message is too long (600 characters max).",
         terms: "Please agree to the processing of your data.",
@@ -122,14 +124,29 @@ function checkPhone() {
     return setError("phone", "");
 }
 
-// Датата и часът на посещението не са задължителни
+// Датата и часът на посещението не са задължителни.
+// Кученцата се очакват през февруари 2027, затова по-ранни посещения нямат смисъл.
+var FIRST_VISIT_DATE = "2027-02-01";
+
+// Днешната дата като текст ГГГГ-ММ-ДД (в местното време)
+function todayText() {
+    var now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    return now.toISOString().slice(0, 10);
+}
+
+// Най-ранната дата, която може да се избере
+function firstAllowedDate() {
+    var today = todayText();
+    return today > FIRST_VISIT_DATE ? today : FIRST_VISIT_DATE;
+}
+
 function checkDate() {
     var value = document.getElementById("visitDate").value;
-    var today = new Date();
-    today.setHours(0, 0, 0, 0);
+    var first = firstAllowedDate();
 
-    if (value !== "" && new Date(value + "T00:00:00") < today) {
-        return setError("visitDate", text.datePast);
+    if (value !== "" && value < first) {
+        return setError("visitDate", first === FIRST_VISIT_DATE ? text.dateEarly : text.datePast);
     }
     return setError("visitDate", "");
 }
@@ -182,10 +199,8 @@ Object.keys(checks).forEach(function (id) {
     });
 });
 
-// Най-ранната дата в календара е днешната
-var todayValue = new Date();
-todayValue.setMinutes(todayValue.getMinutes() - todayValue.getTimezoneOffset());
-document.getElementById("visitDate").min = todayValue.toISOString().slice(0, 10);
+// Календарът не позволява по-ранна дата
+document.getElementById("visitDate").min = firstAllowedDate();
 
 // Бутонът „Изчисти“ премахва и съобщенията за грешки
 form.addEventListener("reset", function () {

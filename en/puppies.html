@@ -158,8 +158,9 @@
                             <div class="form-row">
                                 <div class="field" id="visitDateField">
                                     <label for="visitDate">Preferred date</label>
-                                    <input type="date" id="visitDate" name="visit_date">
+                                    <input type="date" id="visitDate" name="visit_date" min="2027-02-01">
                                     <span class="error-msg" id="visitDateError"></span>
+                                    <span class="hint">We expect the puppies in February 2027, so visits start from 1 February.</span>
                                 </div>
                                 <div class="field" id="visitTimeField">
                                     <label for="visitTime">Preferred time</label>
@@ -181,7 +182,7 @@
                                 </div>
                             </div>
                             <div class="field" id="colorField">
-                                <label for="color">Preferred colour</label>
+                                <label for="color">Colour (if there is a choice)</label>
                                 <select id="color" name="color">
                                     <option value="">– Choose –</option>
                                     <option value="Grey">Grey</option>
@@ -190,6 +191,7 @@
                                     <option value="Piebald">Piebald</option>
                                     <option value="No preference">No preference</option>
                                 </select>
+                                <span class="hint">Colour depends on the parents and the litter, so we cannot promise one. We will tell you which puppies there are once they are born.</span>
                             </div>
                             <div class="field" id="purposeField">
                                 <span class="label" id="purposeLabel">What will the dog be for?</span>
@@ -214,7 +216,7 @@
                             <span class="error-msg" id="termsError"></span>
                         </div>
 
-                        <p class="form-notice" role="note"><strong>We have no puppies at the moment.</strong> If you would like us to put you on the list for a future puppy, send a request.</p>
+                        <p class="form-notice" role="note"><strong>We have no puppies at the moment.</strong> We expect the next litter in February 2027. Send a request and we will put you on the list for a puppy from it. Being on the list does not guarantee a puppy, as we receive many requests. We will contact you again once the puppies are born.</p>
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-gold" id="submitButton">Send request</button>
