@@ -3,7 +3,7 @@
 var messages = {
     bg: {
         required: "Това поле е задължително.",
-        name: "Използвайте само букви (от 2 до 30 символа).",
+        name: "Използвайте само букви (от 2 до 50 символа).",
         email: "Въведете валиден имейл адрес, например ivan@mail.bg.",
         phone: "Въведете валиден телефон, например 0893 416 137.",
         datePast: "Изберете дата от днес нататък.",
@@ -19,7 +19,7 @@ var messages = {
     },
     en: {
         required: "This field is required.",
-        name: "Use letters only (2 to 30 characters).",
+        name: "Use letters only (2 to 50 characters).",
         email: "Enter a valid email address, e.g. john@mail.com.",
         phone: "Enter a valid phone number, e.g. +359 893 416 137.",
         datePast: "Choose a date from today onwards.",
@@ -51,9 +51,22 @@ var statusBox = document.getElementById("formStatus");
 var submitButton = document.getElementById("submitButton");
 
 // Регулярни изрази за проверка
-var namePattern = /^[A-Za-zА-Яа-яЁё]+([ -][A-Za-zА-Яа-яЁё]+)*$/;
+// \p{L} е буква от всяка азбука (ä, ö, č, đ, і, ї ...), защото имаме
+// купувачи от Германия, Босна, Украйна и др. Позволени са и O'Brien, Анна-Мария, J. Smith
+var namePattern = /^\p{L}[\p{L}\p{M}]*([\s'’.-]+\p{L}[\p{L}\p{M}]*)*\.?$/u;
 var emailPattern = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
 var phonePattern = /^\+?[0-9]{8,15}$/;
+
+// Премахва невидими символи, които телефоните добавят при копиране (напр. от контактите в iPhone)
+function cleanText(value) {
+    return value.replace(/[​-‏‪-‮⁠-⁤﻿]/g, "").trim();
+}
+
+// Оставя само цифрите и „+“ в началото: 0888.123.456, 0888/123 456, (0888) 123-456 ...
+function cleanPhone(value) {
+    value = cleanText(value).replace(/^00/, "+");
+    return (value.charAt(0) === "+" ? "+" : "") + value.replace(/\D/g, "");
+}
 
 // Показва или изчиства грешката под дадено поле
 function setError(field, message) {
@@ -74,19 +87,19 @@ function setError(field, message) {
 }
 
 function checkName(field) {
-    var value = document.getElementById(field).value.trim();
+    var value = cleanText(document.getElementById(field).value);
 
     if (value === "") {
         return setError(field, text.required);
     }
-    if (value.length < 2 || value.length > 30 || !namePattern.test(value)) {
+    if (value.length < 2 || value.length > 50 || !namePattern.test(value)) {
         return setError(field, text.name);
     }
     return setError(field, "");
 }
 
 function checkEmail() {
-    var value = document.getElementById("email").value.trim();
+    var value = cleanText(document.getElementById("email").value);
 
     if (value === "") {
         return setError("email", text.required);
@@ -98,8 +111,7 @@ function checkEmail() {
 }
 
 function checkPhone() {
-    // премахваме интервали, тирета и скоби преди проверката
-    var value = document.getElementById("phone").value.replace(/[\s()-]/g, "");
+    var value = cleanPhone(document.getElementById("phone").value);
 
     if (value === "") {
         return setError("phone", text.required);
@@ -123,8 +135,12 @@ function checkDate() {
 }
 
 function checkTime() {
-    var value = document.getElementById("visitTime").value;
+    var value = document.getElementById("visitTime").value.trim();
 
+    // в стари браузъри полето е обикновен текст и някой може да напише „9:00“
+    if (/^\d:/.test(value)) {
+        value = "0" + value;
+    }
     if (value !== "" && (value < "09:00" || value > "18:00")) {
         return setError("visitTime", text.time);
     }
@@ -209,10 +225,10 @@ function getRequestData() {
 
     return {
         language: lang === "en" ? "English" : "Български",
-        first_name: document.getElementById("firstName").value.trim(),
-        last_name: document.getElementById("lastName").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        phone: document.getElementById("phone").value.trim(),
+        first_name: cleanText(document.getElementById("firstName").value),
+        last_name: cleanText(document.getElementById("lastName").value),
+        email: cleanText(document.getElementById("email").value),
+        phone: cleanText(document.getElementById("phone").value),
         visit_date: document.getElementById("visitDate").value || "–",
         visit_time: document.getElementById("visitTime").value || "–",
         gender: gender ? gender.value : text.any,
@@ -234,7 +250,7 @@ form.addEventListener("submit", function (event) {
     }
 
     // Скритото поле се попълва само от спам ботове
-    if (document.getElementById("website").value !== "") {
+    if (document.getElementById("hpField").value !== "") {
         return;
     }
 
