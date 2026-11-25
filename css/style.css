@@ -741,6 +741,11 @@ ol {
     background-position: center 35%;
 }
 
+.hero-price {
+    background-image: url("../images/photos/hero-price.jpg");
+    background-position: center 45%;
+}
+
 .hero-choosing-puppy {
     background-image: url("../images/photos/hero-choosing-puppy.jpg");
     background-position: center 70%;
