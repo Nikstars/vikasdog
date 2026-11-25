@@ -10,7 +10,7 @@
         <loc>https://vikasdog.com/breed.html</loc>
         <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/breed.html"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/breed.html"/>
-        <lastmod>2026-10-29</lastmod>
+        <lastmod>2026-11-25</lastmod>
     </url>
     <url>
         <loc>https://vikasdog.com/dog-show.html</loc>
@@ -40,7 +40,7 @@
         <loc>https://vikasdog.com/en/breed.html</loc>
         <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/breed.html"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/breed.html"/>
-        <lastmod>2026-10-29</lastmod>
+        <lastmod>2026-11-25</lastmod>
     </url>
     <url>
         <loc>https://vikasdog.com/en/dog-show.html</loc>
@@ -64,13 +64,13 @@
         <loc>https://vikasdog.com/price.html</loc>
         <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/price.html"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/price.html"/>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-25</lastmod>
     </url>
     <url>
         <loc>https://vikasdog.com/en/price.html</loc>
         <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/price.html"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/price.html"/>
-        <lastmod>2026-11-16</lastmod>
+        <lastmod>2026-11-25</lastmod>
     </url>
     <url>
         <loc>https://vikasdog.com/caucasian-vs-central-asian.html</loc>
@@ -107,5 +107,29 @@
         <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/our-dogs.html"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/our-dogs.html"/>
         <lastmod>2026-11-18</lastmod>
+    </url>
+    <url>
+        <loc>https://vikasdog.com/choosing-a-kennel.html</loc>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/choosing-a-kennel.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/choosing-a-kennel.html"/>
+        <lastmod>2026-11-25</lastmod>
+    </url>
+    <url>
+        <loc>https://vikasdog.com/en/choosing-a-kennel.html</loc>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/choosing-a-kennel.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/choosing-a-kennel.html"/>
+        <lastmod>2026-11-25</lastmod>
+    </url>
+    <url>
+        <loc>https://vikasdog.com/choosing-a-puppy.html</loc>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/choosing-a-puppy.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/choosing-a-puppy.html"/>
+        <lastmod>2026-11-25</lastmod>
+    </url>
+    <url>
+        <loc>https://vikasdog.com/en/choosing-a-puppy.html</loc>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://vikasdog.com/choosing-a-puppy.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://vikasdog.com/en/choosing-a-puppy.html"/>
+        <lastmod>2026-11-25</lastmod>
     </url>
 </urlset>

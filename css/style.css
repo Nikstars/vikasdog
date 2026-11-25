@@ -736,6 +736,16 @@ ol {
     background-image: url("../images/photos/puppy-grass.jpg");
 }
 
+.hero-choosing-kennel {
+    background-image: url("../images/photos/hero-choosing-kennel.jpg");
+    background-position: center 35%;
+}
+
+.hero-choosing-puppy {
+    background-image: url("../images/photos/hero-choosing-puppy.jpg");
+    background-position: center 70%;
+}
+
 .hero-contact {
     background-image: url("../images/photos/kennel-owner-dog.jpg");
     background-position: center 40%;
