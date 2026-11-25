@@ -746,6 +746,26 @@ ol {
     background-position: center 45%;
 }
 
+.hero-kids {
+    background-image: url("../images/photos/hero-kids.jpg");
+    background-position: center 35%;
+}
+
+.hero-coat {
+    background-image: url("../images/photos/hero-coat.jpg");
+    background-position: center 40%;
+}
+
+.hero-right-for-me {
+    background-image: url("../images/photos/hero-right-for-me.jpg");
+    background-position: center 35%;
+}
+
+.hero-socialisation {
+    background-image: url("../images/photos/hero-socialisation.jpg");
+    background-position: center 55%;
+}
+
 .hero-choosing-puppy {
     background-image: url("../images/photos/hero-choosing-puppy.jpg");
     background-position: center 70%;
