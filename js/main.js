@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         backToTop.classList.toggle("show", window.scrollY > 600);
     }
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
     // Текуща година във footer-а
@@ -222,7 +222,7 @@ function initLightbox(links, isEnglish) {
     lightbox.innerHTML =
         '<button type="button" class="lightbox-close" aria-label="' + (isEnglish ? "Close" : "Затвори") + '">&times;</button>' +
         '<button type="button" class="lightbox-prev" aria-label="' + (isEnglish ? "Previous" : "Предишна") + '">&#8592;</button>' +
-        '<figure><img src="" alt=""><figcaption></figcaption></figure>' +
+        '<figure><img alt=""><figcaption></figcaption></figure>' +
         '<button type="button" class="lightbox-next" aria-label="' + (isEnglish ? "Next" : "Следваща") + '">&#8594;</button>';
     document.body.appendChild(lightbox);
 
